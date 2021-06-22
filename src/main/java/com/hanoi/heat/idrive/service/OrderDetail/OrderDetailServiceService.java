@@ -7,9 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,5 +54,10 @@ public class OrderDetailServiceService implements IOrderDetailService {
     @Override
     public List<OrderDetail> History(Long id) {
         return detailRepository.History(id);
+    }
+
+    @Override
+    public Iterable<OrderDetail> findBetween(Date date) {
+        return detailRepository.findBetween(date);
     }
 }

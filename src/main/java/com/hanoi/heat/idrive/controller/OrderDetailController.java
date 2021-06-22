@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 
 
 @RestController
@@ -17,7 +18,12 @@ public class OrderDetailController {
     @Autowired
     private IOrderDetailService orderDetailService;
 
-    @PostMapping("findByDate")
+    @GetMapping
+    public ResponseEntity<Iterable<OrderDetail>> findAll(){
+        return new ResponseEntity<>(orderDetailService.findAll(),HttpStatus.OK);
+    }
+
+    @PostMapping("/findByDate")
     public ResponseEntity<?> findByVehicle(@RequestBody String date){
         return new ResponseEntity<>(orderDetailService.findByDate(date),HttpStatus.OK);
     }
@@ -30,5 +36,10 @@ public class OrderDetailController {
     @PostMapping
     public ResponseEntity<OrderDetail> save(@RequestBody OrderDetail orderDetail) {
         return new ResponseEntity<>(orderDetailService.save(orderDetail), HttpStatus.OK);
+    }
+
+    @PostMapping("/findBetween/{date}")
+    public ResponseEntity<Iterable<OrderDetail>> findBetween(@PathVariable Date date){
+        return new ResponseEntity<>(orderDetailService.findBetween(date),HttpStatus.OK);
     }
 }
