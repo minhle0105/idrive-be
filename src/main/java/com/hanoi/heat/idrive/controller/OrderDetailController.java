@@ -1,7 +1,6 @@
 package com.hanoi.heat.idrive.controller;
 
 import com.hanoi.heat.idrive.model.OrderDetail;
-import com.hanoi.heat.idrive.model.OrderDetail;
 import com.hanoi.heat.idrive.service.OrderDetail.IOrderDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
