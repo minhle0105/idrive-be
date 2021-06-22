@@ -14,7 +14,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail,Long> {
     Iterable<OrderDetail> findByDate(String date);
     @Query(value = "select * from order_detail where own_user_id = ?1",nativeQuery = true)
     List<OrderDetail> History(Long id);
-    @Query(value = "select * from order_detail where own_user_id=?2 group by id having ?1 between min(start_time) and max(end_time)", nativeQuery = true)
+    @Query(value = "select * from order_detail where own_user_id=?2 group by id having ?1 between DATE_SUB(min(start_time), INTERVAL 1 DAY) and max(end_time)", nativeQuery = true)
     Iterable<OrderDetail> findBetween(Date date, Long id);
     Iterable<OrderDetail> findAllByOwnUserId(Long id);
 
