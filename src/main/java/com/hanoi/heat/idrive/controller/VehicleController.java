@@ -1,6 +1,5 @@
 package com.hanoi.heat.idrive.controller;
 
-import com.hanoi.heat.idrive.model.User;
 import com.hanoi.heat.idrive.model.Location;
 import com.hanoi.heat.idrive.model.Vehicle;
 import com.hanoi.heat.idrive.model.VehicleType;

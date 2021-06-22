@@ -35,5 +35,4 @@ public class AuthController {
     public ResponseEntity<String> logout() {
         return ResponseEntity.status(OK).body("Refresh Token Deleted Successfully!!");
     }
-
 }
