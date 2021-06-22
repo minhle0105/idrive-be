@@ -24,11 +24,6 @@ public class OrderDetailController {
         return new ResponseEntity<>(orderDetailService.findByOwn(ownerId),HttpStatus.OK);
     }
 
-    @PostMapping("/findByDate")
-    public ResponseEntity<?> findByVehicle(@RequestBody String date){
-        return new ResponseEntity<>(orderDetailService.findByDate(date),HttpStatus.OK);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<?> History(@PathVariable Long id) {
         return new ResponseEntity<>(orderDetailService.History(id), HttpStatus.OK);
