@@ -1,6 +1,7 @@
 package com.hanoi.heat.idrive.service.OrderDetail;
 
 import com.hanoi.heat.idrive.model.OrderDetail;
+import com.hanoi.heat.idrive.model.User;
 import com.hanoi.heat.idrive.repository.OrderDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -57,7 +58,12 @@ public class OrderDetailServiceService implements IOrderDetailService {
     }
 
     @Override
-    public Iterable<OrderDetail> findBetween(Date date) {
-        return detailRepository.findBetween(date);
+    public Iterable<OrderDetail> findBetween(Date date, Long ownerId) {
+        return detailRepository.findBetween(date, ownerId);
+    }
+
+    @Override
+    public Iterable<OrderDetail> findByOwn(Long ownerId) {
+        return detailRepository.findAllByOwnUserId(ownerId);
     }
 }
